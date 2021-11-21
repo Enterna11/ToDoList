@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 14px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+header h2 {
+    display: inline;
+    font-size: 30px;
+}
+
+header input {
+    padding: 5px;
+}
+
+header button {
+    padding: 5px;
+    background-color: mediumseagreen;
+    color: white;
+}
+
+header button:active {
+    color: mediumseagreen;
+    background-color: white;
+}
+
+header p{
+    font-size: 15px;
+    position: absolute;
+    color: red;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task {
+    min-width: 600px;
+}
+
+.task ol {
+    list-style-type: none;
+    margin: 10px 0 10px 0;
+}
+
+.task li {
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    display: none;
+}
+
+.fake {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.fake:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: crimson;
+    opacity: 0;
+}
+
+.checkbox:checked + .fake:before {
+    opacity: 1;
+}
+
+.text {
+    font-size: 23px;
+    margin-left: 5px;
+}
+
+.task button {
+    float: right;
+    background-color: crimson;
+    color: white;
+    width: 23px;
+    height: 23px;
+    border-radius: 5px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>ToDo</title>
+</head>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<body>
+<div id="app" v-cloak>
+
+    <header>
+        <h2>ToDo</h2>
+        <div>
+            <button @click="addTask">Добавить</button>
+            <input type="text" placeholder="Введите ваше что-то"
+                   v-model="inputValue"
+                   @keypress.enter="addTask"
+            >
+            <p v-if="message.length">{{ message }}</p>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="task" v-if="tasks.todo.length > 0">
+            <h2>ToDo:</h2>
+            <ol>
+                <li
+                        v-for="(task, idx) in tasks.todo"
+                        :key="task"
+                >
+                    <label class="label">
+                        <input class="checkbox" type="checkbox" @change="replaceTask('todo',idx)">
+                        <span class="fake"></span>
+                        <span class="text">{{ task }}</span>
+                    </label>
+                    <button @click="removeTask('todo', idx)">X</button>
+
+                </li>
+            </ol>
+        </div>
+        <div class="task" v-if="tasks.completed.length > 0">
+            <h2>Completed:</h2>
+            <ol>
+                <li
+                        v-for="(task, idx) in tasks.completed"
+                        :key="task"
+                >
+                    <label class="label">
+                        <input class="checkbox" type="checkbox" @change="replaceTask('completed', idx)" checked>
+                        <span class="fake"></span>
+                        <span class="text">{{ task }}</span>
+                    </label>
+                    <button @click="removeTask('completed', idx)">X</button>
+                </li>
+            </ol>
+        </div>
+    </main>
+
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="app.js"></script>
+</body>
+</html>
