@@ -44,6 +44,9 @@ Vue.createApp({
                 this.tasks.todo = this.tasks.todo.concat(replaced)
             }
         },
+        clearList(mark) {
+            this.tasks[mark] = []
+        },
         validationTask(task) {
             switch (true) {
                 case task.length === 0:

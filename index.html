@@ -16,21 +16,21 @@
     <header>
         <h2>ToDo</h2>
         <div>
-            <button @click="addTask">Добавить</button>
-            <input type="text" placeholder="Введите ваше что-то"
+            <button class="btn"
+                    @click="addTask">Добавить</button>
+            <input type="text" placeholder="Введите ваше что-то" autofocus
                    v-model="inputValue"
                    @keypress.enter="addTask"
             >
             <p v-if="message.length">{{ message }}</p>
         </div>
-
     </header>
 
     <main>
         <div class="task" v-if="tasks.todo.length > 0">
-            <h2>ToDo:</h2>
-            <ol>
-                <li
+            <h2>ToDo: <span class="count">{{ tasks.todo.length }}</span></h2>
+            <ol class="mb-1 mt-1">
+                <li class="mb-2"
                         v-for="(task, idx) in tasks.todo"
                         :key="task"
                 >
@@ -39,15 +39,17 @@
                         <span class="fake"></span>
                         <span class="text">{{ task }}</span>
                     </label>
-                    <button @click="removeTask('todo', idx)">X</button>
-
+                    <button class="li-button"
+                            @click="removeTask('todo', idx)"
+                    >X</button>
                 </li>
             </ol>
+            <button class="btn mb-1" @click="clearList('todo')">Очистить</button>
         </div>
         <div class="task" v-if="tasks.completed.length > 0">
-            <h2>Completed:</h2>
-            <ol>
-                <li
+            <h2>Completed: <span class="count">{{ tasks.completed.length }}</span></h2>
+            <ol class="mb-1 mt-1">
+                <li class="mb-2"
                         v-for="(task, idx) in tasks.completed"
                         :key="task"
                 >
@@ -56,9 +58,13 @@
                         <span class="fake"></span>
                         <span class="text">{{ task }}</span>
                     </label>
-                    <button @click="removeTask('completed', idx)">X</button>
+                    <button class="li-button"
+                            @click="removeTask('completed', idx)"
+                    >X</button>
                 </li>
             </ol>
+            <button class="btn mb-1"
+                    @click="clearList('completed')">Очистить</button>
         </div>
     </main>
 

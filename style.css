@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    overflow-y: scroll;
+}
+
 header {
     padding: 14px;
     background-color: bisque;
@@ -16,21 +20,11 @@ header {
 header h2 {
     display: inline;
     font-size: 30px;
+    user-select: none;
 }
 
 header input {
     padding: 5px;
-}
-
-header button {
-    padding: 5px;
-    background-color: mediumseagreen;
-    color: white;
-}
-
-header button:active {
-    color: mediumseagreen;
-    background-color: white;
 }
 
 header p{
@@ -45,17 +39,35 @@ main {
     align-items: center;
 }
 
+.btn {
+    padding: 5px;
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.btn:active {
+    color: mediumseagreen;
+    background-color: white;
+}
+
 .task {
     min-width: 600px;
 }
 
+.task h2 {
+    user-select: none;
+}
+
+.count {
+    float: right;
+}
+
 .task ol {
     list-style-type: none;
-    margin: 10px 0 10px 0;
 }
 
 .task li {
-    margin-bottom: 20px;
+    user-select: none;
 }
 
 .checkbox {
@@ -91,11 +103,23 @@ main {
     margin-left: 5px;
 }
 
-.task button {
+.li-button {
     float: right;
     background-color: crimson;
     color: white;
     width: 23px;
     height: 23px;
-    border-radius: 5px;
+    border-radius: 50%;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
 }
